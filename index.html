@@ -1,11 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Portfolio – Tolart</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tolart — Portfolio</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #222;
+    }
+    header {
+      padding: 4rem 1rem;
+      text-align: center;
+      background: #f4f4f4;
+    }
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 3rem 1rem;
+    }
+    h1, h2 {
+      margin-bottom: 1rem;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      border: 1px solid #ddd;
+      padding: 1.5rem;
+      border-radius: 6px;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #f4f4f4;
+      font-size: 0.9rem;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+  </style>
 </head>
+
 <body>
+
+<header>
   <h1>Tolart</h1>
-  <p>Portfolio en ligne</p>
+  <p>Création & Portfolio</p>
+</header>
+
+<section>
+  <h2>À propos</h2>
+  <p>
+    Présente-toi ici : ton activité, ton style, ce que tu proposes.
+    Quelques lignes suffisent.
+  </p>
+</section>
+
+<section>
+  <h2>Projets</h2>
+  <div class="projects">
+    <div class="card">
+      <h3>Projet 1</h3>
+      <p>Description courte du projet.</p>
+    </div>
+    <div class="card">
+      <h3>Projet 2</h3>
+      <p>Description courte du projet.</p>
+    </div>
+    <div class="card">
+      <h3>Projet 3</h3>
+      <p>Description courte du projet.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <p>
+    Email : <a href="mailto:contact@tolart.com">contact@tolart.com</a><br/>
+    Instagram / LinkedIn / autre
+  </p>
+</section>
+
+<footer>
+  © Tolart — Portfolio
+</footer>
+
 </body>
 </html>
