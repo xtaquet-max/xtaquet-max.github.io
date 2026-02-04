@@ -1,254 +1,185 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tolart — Street Art Portfolio</title>
 
-  <!-- Polices -->
-  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
-    /* RESET & BASE */
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
       background: #0b0b0b;
-      color: #f2f2f2;
-      line-height: 1.7;
+      color: #eee;
     }
 
-    /* TEXTURE / GRAIN */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        repeating-radial-gradient(circle at 0 0,
-          rgba(255,255,255,0.02) 0,
-          rgba(255,255,255,0.02) 1px,
-          transparent 1px,
-          transparent 4px);
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    /* MENU FIXE */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      z-index: 1000;
-      background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid #222;
-    }
-
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0.8rem 1.5rem;
-      display: flex;
-      justify-content: flex-end;
-      gap: 2rem;
+      background: rgba(0,0,0,0.85);
+      padding: 1rem 2rem;
+      z-index: 100;
+      text-align: right;
     }
 
     nav a {
-      color: #f2f2f2;
+      color: #eee;
+      margin-left: 1.5rem;
       text-decoration: none;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
+      font-weight: 500;
     }
 
-    nav a:hover {
-      color: #ff3c00;
-    }
-
-    /* HEADER */
     header {
-      padding: 8rem 1rem 6rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      background: radial-gradient(circle at top, #1a1a1a, #000);
+      background: radial-gradient(circle at top, #222, #000);
     }
 
     header h1 {
       font-family: 'Permanent Marker', cursive;
       font-size: 4rem;
-      margin: 0;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
     }
 
     header p {
-      margin-top: 1rem;
+      opacity: 0.8;
       font-size: 1.2rem;
-      color: #aaa;
     }
 
-    /* SECTIONS */
     section {
-      max-width: 1100px;
+      padding: 6rem 2rem;
+      max-width: 1200px;
       margin: auto;
-      padding: 5rem 1.5rem;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     h2 {
       font-family: 'Permanent Marker', cursive;
-      font-size: 2.4rem;
+      font-size: 2.5rem;
       margin-bottom: 2rem;
-      border-left: 6px solid #ff3c00;
-      padding-left: 1rem;
     }
 
-    /* PORTFOLIO */
-    .projects {
+    /* Portfolio */
+    .portfolio {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
 
-    .card {
-      background: #141414;
-      border: 1px solid #222;
-      padding: 2.2rem;
-      border-radius: 12px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .portfolio img {
+      width: 100%;
+      border-radius: 6px;
+      filter: grayscale(30%) contrast(110%);
+      transition: transform 0.4s ease, filter 0.4s ease;
     }
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 40px rgba(255,60,0,0.2);
+    .portfolio img:hover {
+      transform: scale(1.03);
+      filter: grayscale(0%) contrast(130%);
     }
 
-    .card h3 {
-      margin-top: 0;
-      color: #ff3c00;
+    /* Contact */
+    .contact {
+      background: #111;
+      text-align: center;
+      border-top: 1px solid #222;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 1rem 2rem;
+      border: 2px solid #eee;
+      color: #eee;
+      text-decoration: none;
       font-weight: 600;
     }
 
-    /* CONTACT */
-    #contact {
-      background: #050505;
-      border-top: 1px solid #222;
-      text-align: center;
-    }
-
-    #contact p {
-      font-size: 1.1rem;
-    }
-
-    a {
-      color: #ff3c00;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* FOOTER */
     footer {
       text-align: center;
-      padding: 3rem 1rem;
-      background: #000;
-      color: #666;
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 3rem;
-      }
+      padding: 2rem;
+      font-size: 0.8rem;
+      opacity: 0.6;
     }
   </style>
 </head>
 
 <body>
 
-<nav>
-  <ul>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+  <nav>
+    <a href="#about">À propos</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-<header>
-  <h1>Tolart</h1>
-  <p>Artiste peintre · Street Art · Création urbaine</p>
-</header>
+  <header>
+    <h1>Tolart</h1>
+    <p>Artiste peintre • Street Art • Mur & toile</p>
+  </header>
 
-<section id="about">
-  <h2>À propos</h2>
-  <p>
-    Artiste peintre influencé par l’esthétique urbaine et le street art.
-    Mon travail explore le geste, la matière et l’impact visuel,
-    entre mur, toile et espace architectural.
-  </p>
-</section>
+  <section id="about">
+    <h2>À propos</h2>
+    <p>
+      Artiste peintre influencé par la rue, le béton et les textures urbaines.
+      Mon travail explore les contrastes, les traces, et la matière brute.
+    </p>
+  </section>
 
-<section id="portfolio">
-  <h2>Portfolio</h2>
-  <div class="projects">
+  <section id="portfolio">
+    <h2>Portfolio</h2>
 
-    <div class="card">
-      <h3>Mur Urbain</h3>
-      <p>Peinture murale en extérieur, inspiration graffiti et textures brutes.</p>
+    <div class="portfolio">
+      <img src="assets/img/Monnaie de singe_chimp.jpg" alt="Œuvre street art 1">
+      <img src="assets/img/Monnaie de singe_chimp.jpg" alt="Œuvre street art 2">
+      <img src="assets/img/Dol_Vador.jpg" alt="Œuvre street art 3">
+      <img src="assets/img/.jpg" alt="Œuvre street art 4">
+      <img src="assets/img/Monnaie de singe_chimp.jpg" alt="Œuvre street art 5">
+      <img src="assets/img/Dol_Vador.jpg" alt="Œuvre street art 6">
+      <img src="assets/img/PinUp.jpg" alt="Œuvre street art 7">
+      <img src="assets/img/Steeve.jpg" alt="Œuvre street art 8">
+      <img src="assets/img/Monnaie de singe _capu.jpg" alt="Œuvre street art 9">
+      <img src="assets/img/diana.jpg" alt="Œuvre street art 10">
+      <img src="assets/img/Flox.jpg" alt="Œuvre street art 11">
+      <img src="assets/img/Dol_Marylin.jpg" alt="Œuvre street art 12">
+      <img src="assets/img/Divin.jpg" alt="Œuvre street art 13">
+      <img src="assets/img/Medusa.jpg" alt="Œuvre street art 14">
+      <img src="assets/img/Le sud.jpg" alt="Œuvre street art 15">
+      <img src="assets/img/Kraken.jpg" alt="Œuvre street art 16">
+      <img src="assets/img/Kong fishing.jpg" alt="Œuvre street art 17">
+      <img src="assets/img/Love.jpg" alt="Œuvre street art 18">
+      <img src="assets/img/Bullit.jpg" alt="Œuvre street art 19">
+      <img src="assets/img/Berberian.jpg" alt="Œuvre street art 20">
+      <img src="assets/img/Thermo Rhino.jpg" alt="Œuvre street art 21">
+      <img src="assets/img/Tribal.jpg" alt="Œuvre street art 22">
+      <img src="assets/img/Nomade.jpg" alt="Œuvre street art 23">
+      <img src="assets/img/Habana.jpg" alt="Œuvre street art 24">
+      <img src="assets/img/cohiba.jpg" alt="Œuvre street art 25">
+      <img src="assets/img/Spartian.jpg" alt="Œuvre street art 26">
+      <img src="assets/img/Peroq.jpg" alt="Œuvre street art 27">
+      <img src="assets/img/Deeper.jpg" alt="Œuvre street art 28">
+      <img src="assets/img/NYC.jpg" alt="Œuvre street art 29">
+      <img src="assets/img/Hamil2.jpg" alt="Œuvre street art 30">  
+      <img src="assets/img/Baleine.jpg" alt="Œuvre street art 31">
+      <img src="assets/img/Burning Lion.jpg" alt="Œuvre street art 32">       
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Toiles Noires</h3>
-      <p>Série de toiles sur fond sombre, contrastes forts et énergie du trait.</p>
-    </div>
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Expositions, commandes, collaborations</p>
+    <a href="mailto:contact@tolart.com">contact@tolart.com</a>
+  </section>
 
-    <div class="card">
-      <h3>Atelier</h3>
-      <p>Recherches graphiques, expérimentations et travail de matière.</p>
-    </div>
-
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Projet, collaboration, exposition ?</p>
-  <p>
-    📩 <a href="mailto:contact@tolart.com">contact@tolart.com</a><br/>
-    📷 Instagram · Galerie · Expositions
-  </p>
-</section>
-
-<footer>
-  © Tolart — Street Art Portfolio
-</footer>
-
-<script>
-  // Animation fade / reveal au scroll
-  const sections = document.querySelectorAll('section');
-
-  const reveal = () => {
-    const trigger = window.innerHeight * 0.85;
-    sections.forEach(section => {
-      const top = section.getBoundingClientRect().top;
-      if (top < trigger) {
-        section.classList.add('visible');
-      }
-    });
-  };
-
-  window.addEventListener('scroll', reveal);
-  window.addEventListener('load', reveal);
-</script>
+  <footer>
+    © Tolart — Street Art Portfolio
+  </footer>
 
 </body>
 </html>
