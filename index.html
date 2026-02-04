@@ -5,20 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tolart — Street Art Portfolio</title>
 
-  <!-- Polices street & clean -->
+  <!-- Polices -->
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
+    /* RESET & BASE */
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: #0e0e0e;
+      background: #0b0b0b;
       color: #f2f2f2;
       line-height: 1.7;
     }
 
+    /* TEXTURE / GRAIN */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        repeating-radial-gradient(circle at 0 0,
+          rgba(255,255,255,0.02) 0,
+          rgba(255,255,255,0.02) 1px,
+          transparent 1px,
+          transparent 4px);
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* MENU FIXE */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid #222;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      justify-content: flex-end;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover {
+      color: #ff3c00;
+    }
+
+    /* HEADER */
     header {
-      padding: 6rem 1rem;
+      padding: 8rem 1rem 6rem;
       text-align: center;
       background: radial-gradient(circle at top, #1a1a1a, #000);
     }
@@ -27,29 +79,39 @@
       font-family: 'Permanent Marker', cursive;
       font-size: 4rem;
       margin: 0;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
     }
 
     header p {
+      margin-top: 1rem;
       font-size: 1.2rem;
       color: #aaa;
-      margin-top: 1rem;
     }
 
+    /* SECTIONS */
     section {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
-      padding: 4rem 1.5rem;
+      padding: 5rem 1.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h2 {
       font-family: 'Permanent Marker', cursive;
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       margin-bottom: 2rem;
       border-left: 6px solid #ff3c00;
       padding-left: 1rem;
     }
 
+    /* PORTFOLIO */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -57,55 +119,4 @@
     }
 
     .card {
-      background: #151515;
-      border: 1px solid #222;
-      padding: 2rem;
-      border-radius: 10px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(255,60,0,0.15);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      font-weight: 600;
-      color: #ff3c00;
-    }
-
-    footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: #000;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    a {
-      color: #ff3c00;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-
-<body>
-
-<header>
-  <h1>Tolart</h1>
-  <p>Artiste peintre · Street Art · Création urbaine</p>
-</header>
-
-<section>
-  <h2>À propos</h2>
-  <p>
-    Artiste peintre influencé par l’esthétique urbaine, le street art
-    et les textures de la ville. Mon travail explore la matière,
-    le geste et l’impact visuel dans l’espace public et privé.
-  </
-
+      background: #141414;
