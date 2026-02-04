@@ -120,3 +120,136 @@
 
     .card {
       background: #141414;
+      border: 1px solid #222;
+      padding: 2.2rem;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(255,60,0,0.2);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #ff3c00;
+      font-weight: 600;
+    }
+
+    /* CONTACT */
+    #contact {
+      background: #050505;
+      border-top: 1px solid #222;
+      text-align: center;
+    }
+
+    #contact p {
+      font-size: 1.1rem;
+    }
+
+    a {
+      color: #ff3c00;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: #000;
+      color: #666;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <ul>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header>
+  <h1>Tolart</h1>
+  <p>Artiste peintre · Street Art · Création urbaine</p>
+</header>
+
+<section id="about">
+  <h2>À propos</h2>
+  <p>
+    Artiste peintre influencé par l’esthétique urbaine et le street art.
+    Mon travail explore le geste, la matière et l’impact visuel,
+    entre mur, toile et espace architectural.
+  </p>
+</section>
+
+<section id="portfolio">
+  <h2>Portfolio</h2>
+  <div class="projects">
+
+    <div class="card">
+      <h3>Mur Urbain</h3>
+      <p>Peinture murale en extérieur, inspiration graffiti et textures brutes.</p>
+    </div>
+
+    <div class="card">
+      <h3>Toiles Noires</h3>
+      <p>Série de toiles sur fond sombre, contrastes forts et énergie du trait.</p>
+    </div>
+
+    <div class="card">
+      <h3>Atelier</h3>
+      <p>Recherches graphiques, expérimentations et travail de matière.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Projet, collaboration, exposition ?</p>
+  <p>
+    📩 <a href="mailto:contact@tolart.com">contact@tolart.com</a><br/>
+    📷 Instagram · Galerie · Expositions
+  </p>
+</section>
+
+<footer>
+  © Tolart — Street Art Portfolio
+</footer>
+
+<script>
+  // Animation fade / reveal au scroll
+  const sections = document.querySelectorAll('section');
+
+  const reveal = () => {
+    const trigger = window.innerHeight * 0.85;
+    sections.forEach(section => {
+      const top = section.getBoundingClientRect().top;
+      if (top < trigger) {
+        section.classList.add('visible');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', reveal);
+  window.addEventListener('load', reveal);
+</script>
+
+</body>
+</html>
+
