@@ -25,7 +25,7 @@
       background-attachment: fixed;
     }
 
-    /* ===== MENU ===== */
+    /* MENU */
     nav {
       position: fixed;
       top: 0;
@@ -46,7 +46,7 @@
 
     nav a:hover { color: #f72585; }
 
-    /* ===== HEADER ===== */
+    /* HEADER */
     header {
       min-height: 100vh;
       display: flex;
@@ -54,52 +54,29 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      position: relative;
       padding: 2rem;
-    }
-
-    header::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url("https://i.ibb.co/djRtX3m/spray-texture.png") repeat;
-      opacity: 0.15;
-      pointer-events: none;
     }
 
     header h1 {
       font-family: 'Permanent Marker', cursive;
       font-size: 4rem;
       letter-spacing: 3px;
-      z-index: 1;
     }
 
-    header p {
-      opacity: 0.85;
-      z-index: 1;
-    }
-
-    /* ===== SECTIONS ===== */
-   section {
-  padding: 6rem 2rem;
-  max-width: 1300px;
-  margin: auto;
-
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
+    /* SECTIONS */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1300px;
+      margin: auto;
     }
 
     h2 {
       font-family: 'Permanent Marker', cursive;
       font-size: 2.5rem;
       margin-bottom: 2rem;
-      text-shadow: 3px 3px #000;
     }
 
-    /* ===== PORTFOLIO ===== */
+    /* PORTFOLIO */
     .portfolio {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -110,22 +87,21 @@
       display: block;
       overflow: hidden;
       border-radius: 6px;
-      position: relative;
     }
 
     .portfolio img {
       width: 100%;
       display: block;
-      filter: grayscale(35%) contrast(120%);
-      transition: transform 0.5s ease, filter 0.5s ease;
+      filter: grayscale(30%) contrast(120%);
+      transition: transform 0.4s ease, filter 0.4s ease;
     }
 
     .portfolio img:hover {
-      transform: scale(1.06) rotate(-1deg);
+      transform: scale(1.05);
       filter: grayscale(0%) contrast(140%);
     }
 
-    /* ===== CONTACT ===== */
+    /* CONTACT */
     .contact {
       background: #111;
       text-align: center;
@@ -140,8 +116,7 @@
       color: #f72585;
       text-decoration: none;
       font-weight: 600;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
+      transition: 0.3s;
     }
 
     .contact a:hover {
@@ -156,12 +131,9 @@
       opacity: 0.6;
     }
 
-    /* ===== MOBILE ===== */
     @media (max-width: 768px) {
       header h1 { font-size: 3rem; }
       nav { text-align: center; }
-      nav a { margin: 0 0.7rem; }
-      h2 { font-size: 2rem; }
     }
   </style>
 </head>
@@ -176,71 +148,42 @@
 
 <header>
   <h1>Tolart</h1>
-  <p>Artiste peintre • Street Art • Mur & toile</p>
+  <p>Artiste peintre • Street Art</p>
 </header>
 
 <section id="about">
   <h2>À propos</h2>
   <p>
     Artiste peintre influencé par la rue, le béton et les textures urbaines.
-    Mon travail explore les contrastes, la matière brute et les traces du temps.
+    Travail sur mur, toile et supports bruts.
   </p>
 </section>
 
 <section id="portfolio">
   <h2>Portfolio</h2>
-
   <div class="portfolio">
-    <a href="assets/img/Monnaie-de-singe_chimp.jpg">
-      <img src="assets/img/Monnaie-de-singe_chimp.jpg">
-    </a>
 
-    <a href="assets/img/Monnaie-de-singe_Kong.jpg">
-      <img src="assets/img/Monnaie-de-singe_Kong.jpg">
-    </a>
+    <a href="assets/img/baleine.jpg"><img src="assets/img/baleine.jpg"></a>
+    <a href="assets/img/berberian.png"><img src="assets/img/berberian.png"></a>
+    <a href="assets/img/bullit.jpg"><img src="assets/img/bullit.jpg"></a>
+    <a href="assets/img/burning-lion.jpg"><img src="assets/img/burning-lion.jpg"></a>
+    <a href="assets/img/cohiba.jpg"><img src="assets/img/cohiba.jpg"></a>
+    <a href="assets/img/deeper.jpg"><img src="assets/img/deeper.jpg"></a>
+    <a href="assets/img/diana.jpg"><img src="assets/img/diana.jpg"></a>
+    <a href="assets/img/divin.jpg"><img src="assets/img/divin.jpg"></a>
+    <a href="assets/img/dol_marylin.jpg"><img src="assets/img/dol_marylin.jpg"></a>
+    <a href="assets/img/dol_vador.JPG"><img src="assets/img/dol_vador.JPG"></a>
+    <a href="assets/img/flox.jpg"><img src="assets/img/flox.jpg"></a>
+    <a href="assets/img/habana.jpg"><img src="assets/img/habana.jpg"></a>
+    <a href="assets/img/kraken.jpg"><img src="assets/img/kraken.jpg"></a>
+    <a href="assets/img/love.jpg"><img src="assets/img/love.jpg"></a>
+    <a href="assets/img/medusa.jpg"><img src="assets/img/medusa.jpg"></a>
+    <a href="assets/img/monnaie-de-singe_capu.jpg"><img src="assets/img/monnaie-de-singe_capu.jpg"></a>
+    <a href="assets/img/monnaie-de-singe_chimp.JPG"><img src="assets/img/monnaie-de-singe_chimp.JPG"></a>
+    <a href="assets/img/monnaie-de-singe_kong.JPG"><img src="assets/img/monnaie-de-singe_kong.JPG"></a>
 
-    <a href="assets/img/Dol_Vador.jpg">
-      <img src="assets/img/Dol_Vador.jpg">
-    </a>
-
-    <a href="assets/img/PinUp.jpg">
-      <img src="assets/img/PinUp.jpg">
-    </a>
-
-    <a href="assets/img/Steeve.jpg">
-      <img src="assets/img/Steeve.jpg">
-    </a>
-
-    <a href="assets/img/diana.jpg">
-      <img src="assets/img/diana.jpg">
-    </a>
-
-    <a href="assets/img/Flox.jpg">
-      <img src="assets/img/Flox.jpg">
-    </a>
-
-    <a href="assets/img/Dol_Marylin.jpg">
-      <img src="assets/img/Dol_Marylin.jpg">
-    </a>
-
-    <a href="assets/img/Medusa.jpg">
-      <img src="assets/img/Medusa.jpg">
-    </a>
-
-    <a href="assets/img/Kraken.jpg">
-      <img src="assets/img/Kraken.jpg">
-    </a>
-
-    <a href="assets/img/Love.jpg">
-      <img src="assets/img/Love.jpg">
-    </a>
-
-    <a href="assets/img/Burning-Lion.jpg">
-      <img src="assets/img/Burning-Lion.jpg">
-    </a>
   </div>
 </section>
-
 
 <section id="contact" class="contact">
   <h2>Contact</h2>
@@ -252,20 +195,9 @@
   © Tolart — Street Art Portfolio
 </footer>
 
-<!-- Lightbox -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.15.0/simple-lightbox.min.js"></script>
 <script>
   new SimpleLightbox('.portfolio a');
-
-  // Reveal animation
-  const sections = document.querySelectorAll('section');
-  window.addEventListener('scroll', () => {
-    sections.forEach(sec => {
-      if (sec.getBoundingClientRect().top < window.innerHeight - 100) {
-        sec.classList.add('visible');
-      }
-    });
-  });
 </script>
 
 </body>
