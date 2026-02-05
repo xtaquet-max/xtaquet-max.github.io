@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 
   <!-- Lightbox -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.15.0/simple-lightbox.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.15.0/simple-lightbox.min.css">
 
   <style>
     * { box-sizing: border-box; }
@@ -17,23 +17,18 @@
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
+      background: radial-gradient(circle at top, #222, #000);
       color: #eee;
-      background:
-        url("https://i.ibb.co/djRtX3m/spray-texture.png"),
-        radial-gradient(circle at top, #222, #000);
-      background-size: cover;
-      background-attachment: fixed;
     }
 
-    /* MENU */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
       padding: 1rem 2rem;
-      background: rgba(0,0,0,0.85);
-      z-index: 100;
+      background: rgba(0,0,0,0.9);
       text-align: right;
+      z-index: 100;
     }
 
     nav a {
@@ -44,9 +39,6 @@
       letter-spacing: 1px;
     }
 
-    nav a:hover { color: #f72585; }
-
-    /* HEADER */
     header {
       min-height: 100vh;
       display: flex;
@@ -63,7 +55,6 @@
       letter-spacing: 3px;
     }
 
-    /* SECTIONS */
     section {
       padding: 6rem 2rem;
       max-width: 1300px;
@@ -76,32 +67,25 @@
       margin-bottom: 2rem;
     }
 
-    /* PORTFOLIO */
     .portfolio {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
     }
 
-    .portfolio a {
-      display: block;
-      overflow: hidden;
-      border-radius: 6px;
-    }
-
     .portfolio img {
       width: 100%;
       display: block;
+      border-radius: 6px;
       filter: grayscale(30%) contrast(120%);
-      transition: transform 0.4s ease, filter 0.4s ease;
+      transition: 0.4s;
     }
 
     .portfolio img:hover {
-      transform: scale(1.05);
       filter: grayscale(0%) contrast(140%);
+      transform: scale(1.04);
     }
 
-    /* CONTACT */
     .contact {
       background: #111;
       text-align: center;
@@ -116,12 +100,6 @@
       color: #f72585;
       text-decoration: none;
       font-weight: 600;
-      transition: 0.3s;
-    }
-
-    .contact a:hover {
-      background: #f72585;
-      color: #111;
     }
 
     footer {
@@ -153,16 +131,12 @@
 
 <section id="about">
   <h2>À propos</h2>
-  <p>
-    Artiste peintre influencé par la rue, le béton et les textures urbaines.
-    Travail sur mur, toile et supports bruts.
-  </p>
+  <p>Art urbain, matière brute, béton et contrastes. Œuvres murales et toiles.</p>
 </section>
 
 <section id="portfolio">
   <h2>Portfolio</h2>
   <div class="portfolio">
-
     <a href="assets/img/baleine.jpg"><img src="assets/img/baleine.jpg"></a>
     <a href="assets/img/berberian.png"><img src="assets/img/berberian.png"></a>
     <a href="assets/img/bullit.jpg"><img src="assets/img/bullit.jpg"></a>
@@ -171,23 +145,22 @@
     <a href="assets/img/deeper.jpg"><img src="assets/img/deeper.jpg"></a>
     <a href="assets/img/diana.jpg"><img src="assets/img/diana.jpg"></a>
     <a href="assets/img/divin.jpg"><img src="assets/img/divin.jpg"></a>
-    <a href="assets/img/dol_marylin.jpg"><img src="assets/img/dol_marylin.jpg"></a>
-    <a href="assets/img/dol_vador.JPG"><img src="assets/img/dol_vador.JPG"></a>
+    <a href="assets/img/dol-marylin.jpg"><img src="assets/img/dol-marylin.jpg"></a>
+    <a href="assets/img/dol-vador.jpg"><img src="assets/img/dol-vador.jpg"></a>
     <a href="assets/img/flox.jpg"><img src="assets/img/flox.jpg"></a>
     <a href="assets/img/habana.jpg"><img src="assets/img/habana.jpg"></a>
+    <a href="assets/img/kong-fishing.jpg"><img src="assets/img/kong-fishing.jpg"></a>
     <a href="assets/img/kraken.jpg"><img src="assets/img/kraken.jpg"></a>
     <a href="assets/img/love.jpg"><img src="assets/img/love.jpg"></a>
     <a href="assets/img/medusa.jpg"><img src="assets/img/medusa.jpg"></a>
-    <a href="assets/img/monnaie-de-singe_capu.jpg"><img src="assets/img/monnaie-de-singe_capu.jpg"></a>
-    <a href="assets/img/monnaie-de-singe_chimp.JPG"><img src="assets/img/monnaie-de-singe_chimp.JPG"></a>
-    <a href="assets/img/monnaie-de-singe_kong.JPG"><img src="assets/img/monnaie-de-singe_kong.JPG"></a>
-
+    <a href="assets/img/monnaie-de-singe-chimp.jpg"><img src="assets/img/monnaie-de-singe-chimp.jpg"></a>
+    <a href="assets/img/monnaie-de-singe-kong.jpg"><img src="assets/img/monnaie-de-singe-kong.jpg"></a>
+    <a href="assets/img/monnaie-de-singe-capu.jpg"><img src="assets/img/monnaie-de-singe-capu.jpg"></a>
   </div>
 </section>
 
 <section id="contact" class="contact">
   <h2>Contact</h2>
-  <p>Expositions • Commandes • Collaborations</p>
   <a href="mailto:contact@tolart.com">contact@tolart.com</a>
 </section>
 
@@ -202,3 +175,4 @@
 
 </body>
 </html>
+
