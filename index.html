@@ -5,23 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tolart — Street Art Portfolio</title>
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 
+  <!-- Lightbox -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.15.0/simple-lightbox.min.css" rel="stylesheet">
+
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: #0b0b0b;
       color: #eee;
+      background:
+        url("https://i.ibb.co/djRtX3m/spray-texture.png"),
+        radial-gradient(circle at top, #222, #000);
+      background-size: cover;
+      background-attachment: fixed;
     }
 
+    /* ===== MENU ===== */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(0,0,0,0.85);
       padding: 1rem 2rem;
+      background: rgba(0,0,0,0.85);
       z-index: 100;
       text-align: right;
     }
@@ -31,8 +41,12 @@
       margin-left: 1.5rem;
       text-decoration: none;
       font-weight: 500;
+      letter-spacing: 1px;
     }
 
+    nav a:hover { color: #f72585; }
+
+    /* ===== HEADER ===== */
     header {
       min-height: 100vh;
       display: flex;
@@ -40,52 +54,80 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: radial-gradient(circle at top, #222, #000);
+      position: relative;
+      padding: 2rem;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("https://i.ibb.co/djRtX3m/spray-texture.png") repeat;
+      opacity: 0.15;
+      pointer-events: none;
     }
 
     header h1 {
       font-family: 'Permanent Marker', cursive;
       font-size: 4rem;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
+      z-index: 1;
     }
 
     header p {
-      opacity: 0.8;
-      font-size: 1.2rem;
+      opacity: 0.85;
+      z-index: 1;
     }
 
+    /* ===== SECTIONS ===== */
     section {
       padding: 6rem 2rem;
-      max-width: 1200px;
+      max-width: 1300px;
       margin: auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h2 {
       font-family: 'Permanent Marker', cursive;
       font-size: 2.5rem;
       margin-bottom: 2rem;
+      text-shadow: 3px 3px #000;
     }
 
-    /* Portfolio */
+    /* ===== PORTFOLIO ===== */
     .portfolio {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
+    }
+
+    .portfolio a {
+      display: block;
+      overflow: hidden;
+      border-radius: 6px;
+      position: relative;
     }
 
     .portfolio img {
       width: 100%;
-      border-radius: 6px;
-      filter: grayscale(30%) contrast(110%);
-      transition: transform 0.4s ease, filter 0.4s ease;
+      display: block;
+      filter: grayscale(35%) contrast(120%);
+      transition: transform 0.5s ease, filter 0.5s ease;
     }
 
     .portfolio img:hover {
-      transform: scale(1.03);
-      filter: grayscale(0%) contrast(130%);
+      transform: scale(1.06) rotate(-1deg);
+      filter: grayscale(0%) contrast(140%);
     }
 
-    /* Contact */
+    /* ===== CONTACT ===== */
     .contact {
       background: #111;
       text-align: center;
@@ -94,12 +136,19 @@
 
     .contact a {
       display: inline-block;
-      margin-top: 1rem;
-      padding: 1rem 2rem;
-      border: 2px solid #eee;
-      color: #eee;
+      margin-top: 1.5rem;
+      padding: 1rem 2.5rem;
+      border: 2px solid #f72585;
+      color: #f72585;
       text-decoration: none;
       font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    .contact a:hover {
+      background: #f72585;
+      color: #111;
     }
 
     footer {
@@ -108,79 +157,81 @@
       font-size: 0.8rem;
       opacity: 0.6;
     }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      header h1 { font-size: 3rem; }
+      nav { text-align: center; }
+      nav a { margin: 0 0.7rem; }
+      h2 { font-size: 2rem; }
+    }
   </style>
 </head>
 
 <body>
 
-  <nav>
-    <a href="#about">À propos</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<nav>
+  <a href="#about">À propos</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <header>
-    <h1>Tolart</h1>
-    <p>Artiste peintre • Street Art • Mur & toile</p>
-  </header>
+<header>
+  <h1>Tolart</h1>
+  <p>Artiste peintre • Street Art • Mur & toile</p>
+</header>
 
-  <section id="about">
-    <h2>À propos</h2>
-    <p>
-      Artiste peintre influencé par la rue, le béton et les textures urbaines.
-      Mon travail explore les contrastes, les traces, et la matière brute.
-    </p>
-  </section>
+<section id="about">
+  <h2>À propos</h2>
+  <p>
+    Artiste peintre influencé par la rue, le béton et les textures urbaines.
+    Mon travail explore les contrastes, la matière brute et les traces du temps.
+  </p>
+</section>
 
-  <section id="portfolio">
-    <h2>Portfolio</h2>
+<section id="portfolio">
+  <h2>Portfolio</h2>
+  <div class="portfolio">
+    <a href="assets/img/Monnaie de singe_chimp.jpg"><img src="assets/img/Monnaie de singe_chimp.jpg"></a>
+    <a href="assets/img/Monnaie de singe_Kong.jpg"><img src="assets/img/Monnaie de singe_Kong.jpg"></a>
+    <a href="assets/img/Dol_Vador.jpg"><img src="assets/img/Dol_Vador.jpg"></a>
+    <a href="assets/img/PinUp.jpg"><img src="assets/img/PinUp.jpg"></a>
+    <a href="assets/img/Steeve.jpg"><img src="assets/img/Steeve.jpg"></a>
+    <a href="assets/img/diana.jpg"><img src="assets/img/diana.jpg"></a>
+    <a href="assets/img/Flox.jpg"><img src="assets/img/Flox.jpg"></a>
+    <a href="assets/img/Dol_Marylin.jpg"><img src="assets/img/Dol_Marylin.jpg"></a>
+    <a href="assets/img/Medusa.jpg"><img src="assets/img/Medusa.jpg"></a>
+    <a href="assets/img/Kraken.jpg"><img src="assets/img/Kraken.jpg"></a>
+    <a href="assets/img/Love.jpg"><img src="assets/img/Love.jpg"></a>
+    <a href="assets/img/Burning Lion.jpg"><img src="assets/img/Burning Lion.jpg"></a>
+  </div>
+</section>
 
-    <div class="portfolio">
-      <img src="assets/img/Monnaie de singe_chimp.jpg" alt="Œuvre street art 1">
-      <img src="assets/img/Monnaie de singe_Kong.jpg" alt="Œuvre street art 2">
-      <img src="assets/img/Dol_Vador.jpg" alt="Œuvre street art 3">
-      <img src="assets/img/.jpg" alt="Œuvre street art 4">
-      <img src="assets/img/Monnaie de singe_chimp.jpg" alt="Œuvre street art 5">
-      <img src="assets/img/Dol_Vador.jpg" alt="Œuvre street art 6">
-      <img src="assets/img/PinUp.jpg" alt="Œuvre street art 7">
-      <img src="assets/img/Steeve.jpg" alt="Œuvre street art 8">
-      <img src="assets/img/Monnaie de singe _capu.jpg" alt="Œuvre street art 9">
-      <img src="assets/img/diana.jpg" alt="Œuvre street art 10">
-      <img src="assets/img/Flox.jpg" alt="Œuvre street art 11">
-      <img src="assets/img/Dol_Marylin.jpg" alt="Œuvre street art 12">
-      <img src="assets/img/Divin.jpg" alt="Œuvre street art 13">
-      <img src="assets/img/Medusa.jpg" alt="Œuvre street art 14">
-      <img src="assets/img/Le sud.jpg" alt="Œuvre street art 15">
-      <img src="assets/img/Kraken.jpg" alt="Œuvre street art 16">
-      <img src="assets/img/Kong fishing.jpg" alt="Œuvre street art 17">
-      <img src="assets/img/Love.jpg" alt="Œuvre street art 18">
-      <img src="assets/img/Bullit.jpg" alt="Œuvre street art 19">
-      <img src="assets/img/Berberian.jpg" alt="Œuvre street art 20">
-      <img src="assets/img/Thermo Rhino.jpg" alt="Œuvre street art 21">
-      <img src="assets/img/Tribal.jpg" alt="Œuvre street art 22">
-      <img src="assets/img/Nomade.jpg" alt="Œuvre street art 23">
-      <img src="assets/img/Habana.jpg" alt="Œuvre street art 24">
-      <img src="assets/img/cohiba.jpg" alt="Œuvre street art 25">
-      <img src="assets/img/Spartian.jpg" alt="Œuvre street art 26">
-      <img src="assets/img/Peroq.jpg" alt="Œuvre street art 27">
-      <img src="assets/img/Deeper.jpg" alt="Œuvre street art 28">
-      <img src="assets/img/NYC.jpg" alt="Œuvre street art 29">
-      <img src="assets/img/Hamil2.jpg" alt="Œuvre street art 30">  
-      <img src="assets/img/Baleine.jpg" alt="Œuvre street art 31">
-      <img src="assets/img/Burning Lion.jpg" alt="Œuvre street art 32">       
-    </div>
-  </section>
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+  <p>Expositions • Commandes • Collaborations</p>
+  <a href="mailto:contact@tolart.com">contact@tolart.com</a>
+</section>
 
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>Expositions, commandes, collaborations</p>
-    <a href="mailto:contact@tolart.com">contact@tolart.com</a>
-  </section>
+<footer>
+  © Tolart — Street Art Portfolio
+</footer>
 
-  <footer>
-    © Tolart — Street Art Portfolio
-  </footer>
+<!-- Lightbox -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.15.0/simple-lightbox.min.js"></script>
+<script>
+  new SimpleLightbox('.portfolio a');
+
+  // Reveal animation
+  const sections = document.querySelectorAll('section');
+  window.addEventListener('scroll', () => {
+    sections.forEach(sec => {
+      if (sec.getBoundingClientRect().top < window.innerHeight - 100) {
+        sec.classList.add('visible');
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
-
