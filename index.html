@@ -17,16 +17,27 @@
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: radial-gradient(circle at top, #222, #000);
       color: #eee;
+      background:
+        radial-gradient(circle at top, #1c1c1c, #000),
+        repeating-linear-gradient(
+          45deg,
+          rgba(255,255,255,0.02),
+          rgba(255,255,255,0.02) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+      overflow-x: hidden;
     }
 
+    /* ---------- NAV ---------- */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 1rem 2rem;
-      background: rgba(0,0,0,0.9);
+      padding: 0.8rem 2rem;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(6px);
       text-align: right;
       z-index: 100;
     }
@@ -37,8 +48,15 @@
       text-decoration: none;
       font-weight: 500;
       letter-spacing: 1px;
+      opacity: 0.8;
+      transition: opacity 0.3s;
     }
 
+    nav a:hover {
+      opacity: 1;
+    }
+
+    /* ---------- HERO ---------- */
     header {
       min-height: 100vh;
       display: flex;
@@ -51,56 +69,112 @@
 
     header h1 {
       font-family: 'Permanent Marker', cursive;
-      font-size: 4rem;
-      letter-spacing: 3px;
+      font-size: 4.5rem;
+      letter-spacing: 4px;
     }
 
+    header p {
+      opacity: 0.7;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- SECTIONS ---------- */
     section {
-      padding: 6rem 2rem;
-      max-width: 1300px;
+      padding: 7rem 2rem;
+      max-width: 1400px;
       margin: auto;
     }
 
     h2 {
       font-family: 'Permanent Marker', cursive;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
+      font-size: 2.4rem;
+      margin-bottom: 3rem;
     }
 
+    /* ---------- PORTFOLIO ---------- */
     .portfolio {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2.5rem;
     }
+
+    .portfolio a {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeUp 0.8s forwards;
+    }
+
+    .portfolio a:nth-child(odd) { animation-delay: 0.1s; }
+    .portfolio a:nth-child(even) { animation-delay: 0.2s; }
 
     .portfolio img {
       width: 100%;
       display: block;
-      border-radius: 6px;
-      filter: grayscale(30%) contrast(120%);
-      transition: 0.4s;
+      filter: grayscale(35%) contrast(120%);
+      transition: transform 0.4s ease, filter 0.4s ease;
     }
 
-    .portfolio img:hover {
+    .portfolio a::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle, rgba(255,255,255,0.08), transparent 60%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Ccircle cx='1' cy='1' r='1' fill='white'/%3E%3C/svg%3E");
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .portfolio a:hover img {
+      transform: scale(1.05);
       filter: grayscale(0%) contrast(140%);
-      transform: scale(1.04);
     }
 
+    @keyframes fadeUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* ---------- CONTACT ---------- */
     .contact {
-      background: #111;
+      background: #0e0e0e;
       text-align: center;
       border-top: 1px solid #222;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2.8rem;
+      border: 2px solid #f72585;
+      color: #f72585;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 2px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .contact a:hover {
+      background: #f72585;
+      color: #000;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
-      font-size: 0.8rem;
-      opacity: 0.6;
+      font-size: 0.75rem;
+      opacity: 0.5;
     }
 
     @media (max-width: 768px) {
-      header h1 { font-size: 3rem; }
+      header h1 { font-size: 3.2rem; }
       nav { text-align: center; }
     }
   </style>
@@ -116,7 +190,7 @@
 
 <header>
   <h1>Tolart</h1>
-  <p>Artiste peintre • Street Art</p>
+  <p>Street Art • Art Brut • Matière</p>
 </header>
 
 <section id="about">
@@ -126,8 +200,8 @@
 
 <section id="portfolio">
   <h2>Portfolio</h2>
-
   <div class="portfolio">
+    <!-- 🔥 exactement les 27 images fonctionnelles -->
     <a href="assets/img/baleine.jpg"><img src="assets/img/baleine.jpg"></a>
     <a href="assets/img/berberian.png"><img src="assets/img/berberian.png"></a>
     <a href="assets/img/bullit.jpg"><img src="assets/img/bullit.jpg"></a>
